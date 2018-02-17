@@ -1,3 +1,17 @@
 language: go
 go:
-  - 1.7
+- 1.7
+env:
+  global:
+  - AWS_DEFAULT_REGION=eu-west-1
+  - AWS_ACCESS_KEY_ID=AKIAJITPCESODBMNJEMQ
+  - secure: FxrI3uLaMoTUX3H23IizfK4Jbc8HS35aLNSPULADq7Eu91Z8fySUc4Zkfp/xbbfqb8XdLMcMmnbjqn2CLET7u/pWR68pprFGOVIy2v1h+ui67EAUhyJgz/NxJsAcEZ4kNCdfXkOJbl+S0GfZNUg+BLi827tumfSFAd3LYvHNtNIYomZ/gZlK3NYDyyKB3CQhxA8pvLnqfNfV28d2S4My3HkmylvqVkvtPXXRcDdl4dQXDpCDa1ZXxKBWRBjuLD8X1DoA7vHy8gLwXX+hzHP/qBti6zb9DmSiZLYbSpxdjnprdqvjb9jG8MPgDkeR3A3NVrPi3GgdWqsrY8fAvHGdHA64UYOPGw001gSNRJS3CjOG6y52h1iXqM9QKHsrk0rFVN0qX358SDhkcfm3HBRQbtOdT0Radoih5CeO330M5Gjvgu+w2CRDTw/dFyw6da81BKaNDi0uioDh4BbsMmreDJ8I2tBOqkc6tVmOqnACyo7rlhx7esdbL7naRZPhEY20Mujls/eEk4wvSw0LvKxhNVEvM2szHfAzmDDWNdpqMpgDRO0gejY8AIslvv/f7fiIaDhXsaRi/DytLKXRaJDGNaYycXI43uz7PSrEjeCGGZ8BQbkR2HT6jklHUVu87+ujD1cOLC+8EgkLhYkJts6pLLP2aiZsrEZDIPEYSHL2kmE=
+before_deploy:
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+deploy:
+  provider: script
+  script: make package deploy
+  skip_cleanup: true
+  on:
+    branch: master

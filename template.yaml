@@ -9,6 +9,8 @@ Resources:
       Runtime: go1.x
       Handler: main
       CodeUri: .
+      Policies:
+       - AmazonSESFullAccess
       Events:
         Api:
           Type: Api

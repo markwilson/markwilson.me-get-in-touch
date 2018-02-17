@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: markwilson.me - get in touch
+Resources:
+  GetInTouch:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: go1.x
+      Handler: main
+      CodeUri: .
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /get-in-touch
+            Method: post

@@ -33,7 +33,7 @@ func (r Request) IsValid() bool {
 
 func JsonResponse() events.APIGatewayProxyResponse {
 	return events.APIGatewayProxyResponse{
-		Body:       "{success:true}",
+		Body:       "{\"success\":true}",
 		Headers:    responseHeaders,
 		StatusCode: 200,
 	}

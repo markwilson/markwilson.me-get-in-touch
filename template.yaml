@@ -12,8 +12,13 @@ Resources:
       Policies:
        - AmazonSESFullAccess
       Events:
-        Api:
+        POST:
           Type: Api
           Properties:
             Path: /get-in-touch
             Method: post
+        OPTIONS:
+          Type: Api
+          Properties:
+            Path: /get-in-touch
+            Method: options

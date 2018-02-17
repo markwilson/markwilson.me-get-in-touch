@@ -12,6 +12,10 @@ import (
 type Event map[string]interface{}
 
 func HandleRequest(rawRequest events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	if rawRequest.HTTPMethod == "OPTIONS" {
+		return api.CorsOptionsResponse(), nil
+	}
+
 	log.Printf("Processing Lambda request %s\n", rawRequest.RequestContext.RequestID)
 
 	if len(rawRequest.Body) < 1 {
@@ -28,7 +32,7 @@ func HandleRequest(rawRequest events.APIGatewayProxyRequest) (events.APIGatewayP
 		return events.APIGatewayProxyResponse{}, err
 	}
 
-	return api.Response(), nil
+	return api.JsonResponse(), nil
 }
 
 func main() {

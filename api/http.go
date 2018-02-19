@@ -15,7 +15,7 @@ var (
 	emailRegExp = regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 
 	responseHeaders = map[string]string{
-		"Access-Control-Allow-Origin":  "http://markwilson.me",
+		"Access-Control-Allow-Origin":  "https://markwilson.me",
 		"Access-Control-Allow-Methods": "POST, OPTIONS",
 		"Access-Control-Allow-Headers": "content-type, accept",
 	}

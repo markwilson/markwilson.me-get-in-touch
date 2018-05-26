@@ -16,3 +16,6 @@ deploy:
 		--template-file packaged-template.yaml \
 		--stack-name markwilsonme-get-in-touch \
 		--capabilities CAPABILITY_IAM
+
+clean:
+	rm packaged-template.yaml main
